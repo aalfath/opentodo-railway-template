@@ -54,4 +54,4 @@ $bb mkdir -p "$OPENTODO_DATA_DIR"
 $bb chown -R 65532:65532 "$OPENTODO_DATA_DIR"
 
 log "starting OpenTodo $(/opentodo version 2>/dev/null | $bb cut -d' ' -f2) on port $OPENTODO_PORT (data in $OPENTODO_DATA_DIR)"
-exec $bb setpriv --reuid=65532 --regid=65532 --clear-groups /opentodo
+exec $bb setuidgid nonroot /opentodo
